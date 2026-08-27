@@ -24,4 +24,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ps4-fan-threshold-55
-          path: ps4-fan-threshold.bin
+          path: app.bin
