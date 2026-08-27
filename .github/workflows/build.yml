@@ -1,1 +1,27 @@
+name: Build Fan Threshold
 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build PS4 payload
+        uses: Scene-Collective/ps4-payload-sdk@v1
+        with:
+          app_path: .
+          build_command: make
+
+      - name: Upload payload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ps4-fan-threshold-55
+          path: ps4-fan-threshold.bin
